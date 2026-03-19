@@ -431,76 +431,43 @@ footer strong{color:var(--p);font-weight:700}
 </footer>
 
 <script>
-
-
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbz9C_TXnKVt96nc9MsmbOTVTFyq-UfrqIlk5a2LPlfcUnrMQT5ANcBnmZx3Eyl1smHePA/exec";
 
-  
-
-
-// Sends data as URL params — works around the no-cors limitation
 function sendToSheet(data) {
   const params = new URLSearchParams(data).toString();
   const img = new Image();
   img.src = SHEET_URL + "?" + params;
-  // Using Image() trick: fires a GET request with no CORS issues at all
 }
 
-async function doSignup() {
+function doSignup() {
   const name  = document.getElementById('f-name').value.trim();
   const phone = document.getElementById('f-phone').value.trim();
   const grade = document.getElementById('f-grade').value;
-
   if (!phone) { alert('من فضلك دخّل رقم تيليفونك 📱'); return; }
-
   sendToSheet({ name, phone, grade, src: 'hero' });
-
   document.getElementById('form-inner').style.display = 'none';
   document.getElementById('form-success').style.display = 'block';
 }
 
-async function doFinalSignup() {
+function doFinalSignup() {
   const phone = document.getElementById('final-phone').value.trim();
-
   if (!phone) { alert('من فضلك دخّل رقم تيليفونك 📱'); return; }
-
   sendToSheet({ phone, src: 'final' });
-
   document.getElementById('final-form-wrap').style.display = 'none';
   document.getElementById('final-success').style.display = 'block';
 }
 
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
 
-  
-const leads=[];
-function doSignup(){
-  const name=document.getElementById('f-name').value.trim();
-  const phone=document.getElementById('f-phone').value.trim();
-  const grade=document.getElementById('f-grade').value;
-  if(!phone){alert('من فضلك دخّل رقم تيليفونك 📱');return;}
-  leads.push({name,phone,grade,src:'hero',t:new Date().toISOString()});
-  console.log('Lead:',{name,phone,grade});
-  document.getElementById('form-inner').style.display='none';
-  document.getElementById('form-success').style.display='block';
-}
-function doFinalSignup(){
-  const phone=document.getElementById('final-phone').value.trim();
-  if(!phone){alert('من فضلك دخّل رقم تيليفونك 📱');return;}
-  leads.push({phone,src:'final',t:new Date().toISOString()});
-  console.log('Lead:',{phone});
-  document.getElementById('final-form-wrap').style.display='none';
-  document.getElementById('final-success').style.display='block';
-}
-function toggleFaq(btn){
-  const item=btn.closest('.faq-item');
-  const isOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));
-  if(!isOpen) item.classList.add('open');
-}
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});
-},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
