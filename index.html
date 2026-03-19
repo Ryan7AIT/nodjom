@@ -1,473 +1,1273 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>نجومي | Njoumi</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --p:#2563EB;--p2:#1D4ED8;--pk:#DB2777;--am:#D97706;--gr:#059669;
-  --bg:#F8FAFF;--surface:#fff;--border:#DBEAFE;--border2:#E5E7EB;
-  --text:#1E2A4A;--muted:#64748B;--light:#EFF6FF;
-  --shadow:0 1px 3px rgba(0,0,0,.06),0 4px 16px rgba(37,99,235,.07);
-  --shadow-md:0 4px 6px rgba(0,0,0,.05),0 8px 30px rgba(37,99,235,.1);
-}
-body{font-family:'Cairo',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khotwa - خطوة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet" />
 
-nav{position:fixed;top:0;width:100%;z-index:100;padding:0 40px;height:64px;display:flex;justify-content:space-between;align-items:center;background:rgba(248,250,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.logo{font-size:1.45rem;font-weight:900;color:var(--p);letter-spacing:-.5px}
-.logo sub{font-size:.65rem;font-weight:600;color:var(--pk);vertical-align:super;margin-right:2px}
-.nav-btn{background:var(--p);color:#fff;padding:9px 22px;border-radius:100px;font-family:'Cairo',sans-serif;font-size:.85rem;font-weight:700;border:none;cursor:pointer;transition:background .2s,transform .15s}
-.nav-btn:hover{background:var(--p2);transform:translateY(-1px)}
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
 
-.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
-.tag{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;border-radius:100px;font-size:.78rem;font-weight:600;margin-bottom:20px}
-.tag-p{background:#DBEAFE;color:#1E40AF}
-.tag-r{background:#FFF1F2;color:#BE123C}
-.tag-g{background:#ECFDF5;color:#065F46}
-.tag-a{background:#FFFBEB;color:#92400E}
-section{padding:88px 0}
-h2.sec-title{font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:900;line-height:1.25;margin-bottom:12px;color:var(--text)}
-p.sec-sub{font-size:1rem;color:var(--muted);line-height:1.9;max-width:580px}
-.divider{width:48px;height:3px;background:linear-gradient(90deg,var(--p),var(--pk));border-radius:4px;margin:14px 0 28px}
+        :root {
+            --p: #2563EB;
+            --p2: #1D4ED8;
+            --pk: #DB2777;
+            --am: #D97706;
+            --gr: #059669;
+            --bg: #F8FAFF;
+            --surface: #fff;
+            --border: #DBEAFE;
+            --border2: #E5E7EB;
+            --text: #1E2A4A;
+            --muted: #64748B;
+            --light: #EFF6FF;
+            --shadow: 0 1px 3px rgba(0, 0, 0, .06), 0 4px 16px rgba(37, 99, 235, .07);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, .05), 0 8px 30px rgba(37, 99, 235, .1);
+        }
 
-.hero{min-height:100vh;display:flex;align-items:center;padding:100px 0 60px;position:relative;overflow:hidden}
-.hero-deco{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.hero-deco span{position:absolute;border-radius:50%}
-.deco1{width:520px;height:520px;background:radial-gradient(circle,rgba(37,99,235,.07) 0%,transparent 70%);top:-80px;left:-120px}
-.deco2{width:380px;height:380px;background:radial-gradient(circle,rgba(219,39,119,.06) 0%,transparent 70%);bottom:-60px;right:-80px}
-.deco3{width:160px;height:160px;background:rgba(219,234,254,.5);top:30%;right:8%;border-radius:24px;transform:rotate(20deg)}
-.hero-inner{display:grid;grid-template-columns:1fr 400px;gap:60px;align-items:center;position:relative;z-index:1}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#DBEAFE;color:#1E40AF;padding:7px 16px;border-radius:100px;font-size:.8rem;font-weight:700;margin-bottom:24px;border:1px solid #BFDBFE}
-.hero-badge::before{content:'';width:7px;height:7px;background:var(--p);border-radius:50%;animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-size:clamp(2rem,4.5vw,3.4rem);font-weight:900;line-height:1.2;margin-bottom:18px;color:var(--text)}
-.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--p),var(--pk));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-p{font-size:1.05rem;color:var(--muted);line-height:1.9;max-width:480px}
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden
+        }
 
-.form-card{background:var(--surface);border-radius:24px;padding:32px;box-shadow:var(--shadow-md);border:1px solid var(--border)}
-.form-card h3{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:6px}
-.form-card p{font-size:.82rem;color:var(--muted);margin-bottom:22px;line-height:1.7}
-.form-card p strong{color:var(--p);font-weight:700}
-label.field-label{display:block;font-size:.8rem;font-weight:600;color:var(--muted);margin-bottom:6px}
-input[type=text],input[type=tel],input[type=email],select{width:100%;padding:12px 14px;border:1.5px solid var(--border2);border-radius:12px;font-family:'Cairo',sans-serif;font-size:.92rem;color:var(--text);background:#fff;outline:none;transition:border .2s,box-shadow .2s;margin-bottom:14px}
-input:focus,select:focus{border-color:var(--p);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
-select{cursor:pointer}
-.submit-btn{width:100%;padding:14px;background:var(--p);border:none;border-radius:12px;color:#fff;font-family:'Cairo',sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;margin-top:4px}
-.submit-btn:hover{background:var(--p2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,.3)}
-.form-note{font-size:.75rem;color:#94A3B8;text-align:center;margin-top:10px;line-height:1.6}
-.success-state{display:none;text-align:center;padding:24px 16px}
-.success-state .check{width:52px;height:52px;background:#ECFDF5;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:1.4rem}
-.success-state h4{font-size:1.1rem;font-weight:700;color:#065F46;margin-bottom:6px}
-.success-state p{font-size:.85rem;color:var(--muted);line-height:1.7}
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(248, 250, 255, .92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border)
+        }
 
-.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
-.prob-card{background:var(--surface);border-radius:20px;padding:28px 24px;border:1px solid var(--border2);position:relative;overflow:hidden;transition:box-shadow .25s,transform .25s}
-.prob-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px)}
-.prob-stripe{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#EF4444,#F97316)}
-.prob-num{font-size:.72rem;font-weight:700;color:#EF4444;background:#FEF2F2;padding:4px 10px;border-radius:100px;display:inline-block;margin-bottom:14px}
-.prob-card h4{font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--text)}
-.prob-card p{font-size:.875rem;color:var(--muted);line-height:1.85}
+        .logo {
+            font-size: 1.45rem;
+            font-weight: 900;
+            color: var(--p);
+            letter-spacing: -.5px
+        }
 
-.hiw-bg{background:linear-gradient(160deg,#EFF6FF 0%,#FDF2F8 100%);border-radius:32px;padding:64px 56px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;position:relative}
-.steps::before{content:'';position:absolute;top:32px;right:15%;left:15%;height:2px;background:linear-gradient(90deg,var(--p),var(--pk));opacity:.2;z-index:0}
-.step{text-align:center;position:relative;z-index:1}
-.step-num{width:64px;height:64px;background:var(--p);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:1.5rem;color:#fff;font-weight:900;box-shadow:0 8px 20px rgba(37,99,235,.25);transform:rotate(-3deg);transition:transform .3s}
-.step:nth-child(2) .step-num{background:var(--pk);box-shadow:0 8px 20px rgba(219,39,119,.2);transform:rotate(2deg)}
-.step:nth-child(3) .step-num{background:linear-gradient(135deg,var(--p),var(--pk));transform:rotate(-2deg)}
-.step:hover .step-num{transform:rotate(0deg) scale(1.06)}
-.step h4{font-size:1.05rem;font-weight:700;margin-bottom:8px;color:var(--text)}
-.step p{font-size:.875rem;color:var(--muted);line-height:1.85;max-width:220px;margin:0 auto}
+        .logo sub {
+            font-size: .65rem;
+            font-weight: 600;
+            color: var(--pk);
+            vertical-align: super;
+            margin-right: 2px
+        }
 
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
-.feat-card{background:var(--surface);border-radius:20px;padding:28px 24px;border:1px solid var(--border);transition:box-shadow .25s,transform .25s,border-color .25s}
-.feat-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px);border-color:#93C5FD}
-.feat-icon{width:48px;height:48px;border-radius:14px;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:16px}
-.feat-card h4{font-size:.95rem;font-weight:700;margin-bottom:7px;color:var(--text)}
-.feat-card p{font-size:.845rem;color:var(--muted);line-height:1.85}
+        .nav-btn {
+            background: var(--p);
+            color: #fff;
+            padding: 9px 22px;
+            border-radius: 100px;
+            font-family: 'Cairo', sans-serif;
+            font-size: .85rem;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: background .2s, transform .15s
+        }
 
-.commit-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
-.commit-intro p{font-size:.95rem;color:var(--muted);line-height:2;margin-bottom:12px}
-.commit-intro .honest-box{background:#FFFBEB;border:1px solid #FDE68A;border-radius:16px;padding:20px;margin-top:24px}
-.honest-box p{font-size:.875rem;color:#92400E;line-height:1.9;margin:0}
-.commit-list{display:flex;flex-direction:column;gap:16px}
-.commit-item{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px}
-.commit-dot{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.commit-item h5{font-size:.9rem;font-weight:700;margin-bottom:4px;color:var(--text)}
-.commit-item p{font-size:.82rem;color:var(--muted);line-height:1.75;margin:0}
+        .nav-btn:hover {
+            background: var(--p2);
+            transform: translateY(-1px)
+        }
 
-.faq-list{margin-top:40px;display:flex;flex-direction:column;gap:12px;max-width:760px}
-.faq-item{background:var(--surface);border:1px solid var(--border2);border-radius:16px;overflow:hidden}
-.faq-q{width:100%;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;font-family:'Cairo',sans-serif;font-size:.95rem;font-weight:700;color:var(--text);background:none;border:none;cursor:pointer;text-align:right;gap:12px;transition:background .15s}
-.faq-q:hover{background:#F8FAFF}
-.faq-arrow{font-size:.75rem;color:var(--p);transition:transform .25s;flex-shrink:0}
-.faq-a{display:none;padding:0 22px 18px;font-size:.875rem;color:var(--muted);line-height:1.9}
-.faq-item.open .faq-a{display:block}
-.faq-item.open .faq-arrow{transform:rotate(180deg)}
-.faq-item.open .faq-q{color:var(--p)}
+        .wrap {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 24px
+        }
 
-.final-wrap{background:linear-gradient(135deg,var(--p) 0%,#3B82F6 50%,var(--pk) 100%);border-radius:32px;padding:72px 56px;text-align:center;position:relative;overflow:hidden}
-.final-wrap::before{content:'';position:absolute;top:-60px;right:-60px;width:260px;height:260px;background:rgba(255,255,255,.06);border-radius:50%}
-.final-wrap::after{content:'';position:absolute;bottom:-80px;left:-40px;width:320px;height:320px;background:rgba(255,255,255,.04);border-radius:50%}
-.final-wrap h2{font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:900;color:#fff;margin-bottom:12px;position:relative}
-.final-wrap p{color:rgba(255,255,255,.8);font-size:1rem;line-height:1.9;margin-bottom:36px;position:relative}
-.final-form{max-width:460px;margin:0 auto;position:relative;display:flex;flex-direction:column;gap:12px}
-.final-form input{padding:14px 18px;border-radius:12px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.12);color:#fff;font-family:'Cairo',sans-serif;font-size:.95rem;outline:none;text-align:right;backdrop-filter:blur(4px)}
-.final-form input::placeholder{color:rgba(255,255,255,.55)}
-.final-form input:focus{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.18)}
-.final-form button{padding:15px;background:#fff;border:none;border-radius:12px;color:var(--p);font-family:'Cairo',sans-serif;font-size:1rem;font-weight:900;cursor:pointer;transition:transform .15s,box-shadow .2s}
-.final-form button:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
-.final-note{color:rgba(255,255,255,.5);font-size:.78rem;margin-top:12px;position:relative}
-.final-success{display:none;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:24px;margin-top:8px}
-.final-success p{color:#fff;font-size:.95rem;margin:0}
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 14px;
+            border-radius: 100px;
+            font-size: .78rem;
+            font-weight: 600;
+            margin-bottom: 20px
+        }
 
-footer{padding:36px 24px;text-align:center;border-top:1px solid var(--border);color:var(--muted);font-size:.82rem;line-height:1.9}
-footer strong{color:var(--p);font-weight:700}
+        .tag-p {
+            background: #DBEAFE;
+            color: #1E40AF
+        }
 
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
-.reveal.vis{opacity:1;transform:translateY(0)}
+        .tag-r {
+            background: #FFF1F2;
+            color: #BE123C
+        }
 
-@media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr;gap:36px}
-  .prob-grid,.feat-grid,.steps{grid-template-columns:1fr 1fr}
-  .steps::before{display:none}
-  .commit-wrap{grid-template-columns:1fr}
-  .hiw-bg,.final-wrap{padding:40px 28px}
-  nav{padding:0 20px}
-}
-@media(max-width:580px){
-  .prob-grid,.feat-grid,.steps{grid-template-columns:1fr}
-  section{padding:64px 0}
-}
-</style>
+        .tag-g {
+            background: #ECFDF5;
+            color: #065F46
+        }
+
+        .tag-a {
+            background: #FFFBEB;
+            color: #92400E
+        }
+
+        section {
+            padding: 88px 0
+        }
+
+        .honest-box {
+            background: none;
+            padding: 0;
+            border: none;
+            margin-top: 1.5rem;
+            transform: rotate(-1.5deg);
+            display: inline-block;
+        }
+
+        .honest-img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+            padding: 10px 10px 40px 10px;
+            background: #fff;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        h2.sec-title {
+            font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 12px;
+            color: var(--text)
+        }
+
+        p.sec-sub {
+            font-size: 1rem;
+            color: var(--muted);
+            line-height: 1.9;
+            max-width: 580px
+        }
+
+        .divider {
+            width: 48px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--p), var(--pk));
+            border-radius: 4px;
+            margin: 14px 0 28px
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 0 60px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero-deco {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden
+        }
+
+        .hero-deco span {
+            position: absolute;
+            border-radius: 50%
+        }
+
+        .deco1 {
+            width: 520px;
+            height: 520px;
+            background: radial-gradient(circle, rgba(37, 99, 235, .07) 0%, transparent 70%);
+            top: -80px;
+            left: -120px
+        }
+
+        .deco2 {
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(219, 39, 119, .06) 0%, transparent 70%);
+            bottom: -60px;
+            right: -80px
+        }
+
+        .deco3 {
+            width: 160px;
+            height: 160px;
+            background: rgba(219, 234, 254, .5);
+            top: 30%;
+            right: 8%;
+            border-radius: 24px;
+            transform: rotate(20deg)
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #DBEAFE;
+            color: #1E40AF;
+            padding: 7px 16px;
+            border-radius: 100px;
+            font-size: .8rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            border: 1px solid #BFDBFE
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            background: var(--p);
+            border-radius: 50%;
+            animation: blink 2s infinite
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .3
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4.5vw, 3.4rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 18px;
+            color: var(--text)
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            background: linear-gradient(135deg, var(--p), var(--pk));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .hero-p {
+            font-size: 1.05rem;
+            color: var(--muted);
+            line-height: 1.9;
+            max-width: 480px
+        }
+
+        .form-card {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border)
+        }
+
+        .form-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px
+        }
+
+        .form-card p {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-bottom: 22px;
+            line-height: 1.7
+        }
+
+        .form-card p strong {
+            color: var(--p);
+            font-weight: 700
+        }
+
+        label.field-label {
+            display: block;
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 6px
+        }
+
+        input[type=text],
+        input[type=tel],
+        input[type=email],
+        select {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid var(--border2);
+            border-radius: 12px;
+            font-family: 'Cairo', sans-serif;
+            font-size: .92rem;
+            color: var(--text);
+            background: #fff;
+            outline: none;
+            transition: border .2s, box-shadow .2s;
+            margin-bottom: 14px
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--p);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, .1)
+        }
+
+        select {
+            cursor: pointer
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--p);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background .2s, transform .15s, box-shadow .2s;
+            margin-top: 4px
+        }
+
+        .submit-btn:hover {
+            background: var(--p2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, .3)
+        }
+
+        .form-note {
+            font-size: .75rem;
+            color: #94A3B8;
+            text-align: center;
+            margin-top: 10px;
+            line-height: 1.6
+        }
+
+        .success-state {
+            display: none;
+            text-align: center;
+            padding: 24px 16px
+        }
+
+        .success-state .check {
+            width: 52px;
+            height: 52px;
+            background: #ECFDF5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.4rem
+        }
+
+        .success-state h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #065F46;
+            margin-bottom: 6px
+        }
+
+        .success-state p {
+            font-size: .85rem;
+            color: var(--muted);
+            line-height: 1.7
+        }
+
+        .prob-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px
+        }
+
+        .prob-card {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 28px 24px;
+            border: 1px solid var(--border2);
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow .25s, transform .25s
+        }
+
+        .prob-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px)
+        }
+
+        .prob-stripe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #EF4444, #F97316)
+        }
+
+        .prob-num {
+            font-size: .72rem;
+            font-weight: 700;
+            color: #EF4444;
+            background: #FEF2F2;
+            padding: 4px 10px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-bottom: 14px
+        }
+
+        .prob-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text)
+        }
+
+        .prob-card p {
+            font-size: .875rem;
+            color: var(--muted);
+            line-height: 1.85
+        }
+
+        .hiw-bg {
+            background: linear-gradient(160deg, #EFF6FF 0%, #FDF2F8 100%);
+            border-radius: 32px;
+            padding: 64px 56px
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+            position: relative
+        }
+
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 32px;
+            right: 15%;
+            left: 15%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--p), var(--pk));
+            opacity: .2;
+            z-index: 0
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 1
+        }
+
+        .step-num {
+            width: 64px;
+            height: 64px;
+            background: var(--p);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 900;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, .25);
+            transform: rotate(-3deg);
+            transition: transform .3s
+        }
+
+        .step:nth-child(2) .step-num {
+            background: var(--pk);
+            box-shadow: 0 8px 20px rgba(219, 39, 119, .2);
+            transform: rotate(2deg)
+        }
+
+        .step:nth-child(3) .step-num {
+            background: linear-gradient(135deg, var(--p), var(--pk));
+            transform: rotate(-2deg)
+        }
+
+        .step:hover .step-num {
+            transform: rotate(0deg) scale(1.06)
+        }
+
+        .step h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text)
+        }
+
+        .step p {
+            font-size: .875rem;
+            color: var(--muted);
+            line-height: 1.85;
+            max-width: 220px;
+            margin: 0 auto
+        }
+
+        .feat-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px
+        }
+
+        .feat-card {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 28px 24px;
+            border: 1px solid var(--border);
+            transition: box-shadow .25s, transform .25s, border-color .25s
+        }
+
+        .feat-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+            border-color: #93C5FD
+        }
+
+        .feat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 16px
+        }
+
+        .feat-card h4 {
+            font-size: .95rem;
+            font-weight: 700;
+            margin-bottom: 7px;
+            color: var(--text)
+        }
+
+        .feat-card p {
+            font-size: .845rem;
+            color: var(--muted);
+            line-height: 1.85
+        }
+
+        .commit-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start
+        }
+
+        .commit-intro p {
+            font-size: .95rem;
+            color: var(--muted);
+            line-height: 2;
+            margin-bottom: 12px
+        }
+
+        .commit-intro .honest-box {
+            background: #FFFBEB;
+            border: 1px solid #FDE68A;
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 24px
+        }
+
+        .honest-box p {
+            font-size: .875rem;
+            color: #92400E;
+            line-height: 1.9;
+            margin: 0
+        }
+
+        .commit-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px
+        }
+
+        .commit-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 20px
+        }
+
+        .commit-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0
+        }
+
+        .commit-item h5 {
+            font-size: .9rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text)
+        }
+
+        .commit-item p {
+            font-size: .82rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin: 0
+        }
+
+        .faq-list {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 760px
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border2);
+            border-radius: 16px;
+            overflow: hidden
+        }
+
+        .faq-q {
+            width: 100%;
+            padding: 18px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Cairo', sans-serif;
+            font-size: .95rem;
+            font-weight: 700;
+            color: var(--text);
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: right;
+            gap: 12px;
+            transition: background .15s
+        }
+
+        .faq-q:hover {
+            background: #F8FAFF
+        }
+
+        .faq-arrow {
+            font-size: .75rem;
+            color: var(--p);
+            transition: transform .25s;
+            flex-shrink: 0
+        }
+
+        .faq-a {
+            display: none;
+            padding: 0 22px 18px;
+            font-size: .875rem;
+            color: var(--muted);
+            line-height: 1.9
+        }
+
+        .faq-item.open .faq-a {
+            display: block
+        }
+
+        .faq-item.open .faq-arrow {
+            transform: rotate(180deg)
+        }
+
+        .faq-item.open .faq-q {
+            color: var(--p)
+        }
+
+        .final-wrap {
+            background: linear-gradient(135deg, var(--p) 0%, #3B82F6 50%, var(--pk) 100%);
+            border-radius: 32px;
+            padding: 72px 56px;
+            text-align: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .final-wrap::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 260px;
+            height: 260px;
+            background: rgba(255, 255, 255, .06);
+            border-radius: 50%
+        }
+
+        .final-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -40px;
+            width: 320px;
+            height: 320px;
+            background: rgba(255, 255, 255, .04);
+            border-radius: 50%
+        }
+
+        .final-wrap h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 12px;
+            position: relative
+        }
+
+        .final-wrap p {
+            color: rgba(255, 255, 255, .8);
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 36px;
+            position: relative
+        }
+
+        .final-form {
+            max-width: 460px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .final-form input {
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1.5px solid rgba(255, 255, 255, .2);
+            background: rgba(255, 255, 255, .12);
+            color: #fff;
+            font-family: 'Cairo', sans-serif;
+            font-size: .95rem;
+            outline: none;
+            text-align: right;
+            backdrop-filter: blur(4px)
+        }
+
+        .final-form input::placeholder {
+            color: rgba(255, 255, 255, .55)
+        }
+
+        .final-form input:focus {
+            border-color: rgba(255, 255, 255, .5);
+            background: rgba(255, 255, 255, .18)
+        }
+
+        .final-form button {
+            padding: 15px;
+            background: #fff;
+            border: none;
+            border-radius: 12px;
+            color: var(--p);
+            font-family: 'Cairo', sans-serif;
+            font-size: 1rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: transform .15s, box-shadow .2s
+        }
+
+        .final-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, .15)
+        }
+
+        .final-note {
+            color: rgba(255, 255, 255, .5);
+            font-size: .78rem;
+            margin-top: 12px;
+            position: relative
+        }
+
+        .final-success {
+            display: none;
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 8px
+        }
+
+        .final-success p {
+            color: #fff;
+            font-size: .95rem;
+            margin: 0
+        }
+
+        footer {
+            padding: 36px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: .82rem;
+            line-height: 1.9
+        }
+
+        footer strong {
+            color: var(--p);
+            font-weight: 700
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .65s ease, transform .65s ease
+        }
+
+        .reveal.vis {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        @media(max-width:900px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                gap: 36px
+            }
+
+            .prob-grid,
+            .feat-grid,
+            .steps {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .steps::before {
+                display: none
+            }
+
+            .commit-wrap {
+                grid-template-columns: 1fr
+            }
+
+            .hiw-bg,
+            .final-wrap {
+                padding: 40px 28px
+            }
+
+            nav {
+                padding: 0 20px
+            }
+        }
+
+        @media(max-width:580px) {
+
+            .prob-grid,
+            .feat-grid,
+            .steps {
+                grid-template-columns: 1fr
+            }
+
+            section {
+                padding: 64px 0
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<nav>
-  <button class="nav-btn" onclick="document.getElementById('main-form').scrollIntoView({behavior:'smooth'})">سجّل مكانك ←</button>
-  <div class="logo">نجومي <sub>✦</sub></div>
-</nav>
+    <nav>
+        <button class="nav-btn" onclick="document.getElementById('main-form').scrollIntoView({behavior:'smooth'})">سجّل
+            مكانك ←</button>
+        <div class="logo">خطوة <sub>✦</sub></div>
+    </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-deco">
-    <span class="deco1"></span><span class="deco2"></span><span class="deco3"></span>
-  </div>
-  <div class="wrap">
-    <div class="hero-inner">
-      <div class="hero-text">
-        <div class="hero-badge">🇩🇿 تطبيق جزائري — قريباً يطلع</div>
-        <h1>ولدك يستاهل<br/>يفهم، مش<br/><em>بس ينجح</em></h1>
-        <p class="hero-p" style="margin-top:18px">نجومي يعلّم أطفال الابتدائي يفكّروا بدل ما يحفظوا — بأسلوب يتكيّف مع كل طفل، وبطريقة تريّح بال كل والدين.</p>
-        <div style="display:flex;gap:24px;margin-top:32px;flex-wrap:wrap">
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted)">
-            <span style="width:18px;height:18px;background:#ECFDF5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#059669">✓</span>مجاني للأوائل
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted)">
-            <span style="width:18px;height:18px;background:#ECFDF5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#059669">✓</span>بلا التزام
-          </div>
-          <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted)">
-            <span style="width:18px;height:18px;background:#ECFDF5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#059669">✓</span>معلوماتك محمية
-          </div>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-deco">
+            <span class="deco1"></span><span class="deco2"></span><span class="deco3"></span>
         </div>
-      </div>
+        <div class="wrap">
+            <div class="hero-inner">
+                <div class="hero-text">
+                    <div class="hero-badge">🇩🇿 تطبيق جزائري — قريباً يطلع</div>
+                    <h1>وليدك يستاهل<br />يفهم، مش<br /><em>ينجح برك</em></h1>
+                    <p class="hero-p" style="margin-top:18px">خطوة يعلّم أطفال الابتدائي يفكّروا بدل ما يحفظوا — بأسلوب
+                        يتكيّف مع كل طفل، وبطريقة تريّح بال كل والدين.</p>
+                    <div style="display:flex;gap:24px;margin-top:32px;flex-wrap:wrap">
+                        <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted)">
+                            <span
+                                style="width:18px;height:18px;background:#ECFDF5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#059669">✓</span>مجاني
+                            للأوائل
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted)">
+                            <span
+                                style="width:18px;height:18px;background:#ECFDF5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#059669">✓</span>بلا
+                            التزام
+                        </div>
+                        <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted)">
+                            <span
+                                style="width:18px;height:18px;background:#ECFDF5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#059669">✓</span>معلوماتك
+                            محمية
+                        </div>
+                    </div>
+                </div>
 
-      <div id="main-form" class="form-card">
-        <div id="form-inner">
-          <h3>احجز مكانك قبل الإطلاق</h3>
-          <p>نتصلوا بيك بالشخص قبل ما يطلع رسمياً — <strong>الأماكن محدودة</strong></p>
-          <label class="field-label">اسمك (ولي الأمر)</label>
-          <input type="text" id="f-name" placeholder="مثلاً: سارة ولا رضا"/>
-          <label class="field-label">رقم تيليفونك 📱</label>
-          <input type="tel" id="f-phone" placeholder="05 XX XX XX XX" dir="ltr" style="text-align:left"/>
-          <label class="field-label">سنة ولدك في المدرسة</label>
-          <select id="f-grade">
-            <option value="" disabled selected>اختار السنة...</option>
-            <option>السنة الأولى ابتدائي</option>
-            <option>السنة الثانية ابتدائي</option>
-            <option>السنة الثالثة ابتدائي</option>
-            <option>السنة الرابعة ابتدائي</option>
-            <option>السنة الخامسة ابتدائي</option>
-          </select>
-          <button class="submit-btn" onclick="doSignup()">احجز مجاناً ←</button>
-          <p class="form-note">🔒 ما نعطيوش معلوماتك لحتى كان</p>
+                <div id="main-form" class="form-card">
+                    <div id="form-inner">
+                        <h3>احجز مكانك قبل الإطلاق</h3>
+                        <p>نتصلوا بيك بالشخص قبل ما يطلع رسمياً — <strong>الأماكن محدودة</strong></p>
+                        <label class="field-label">اسمك (ولي الأمر)</label>
+                        <input type="text" id="f-name" placeholder="مثلاً: محمد ولا فاطمة" />
+                        <label class="field-label">رقم تيليفونك 📱</label>
+                        <input type="tel" id="f-phone" placeholder="05 XX XX XX XX" dir="ltr" style="text-align:left" />
+                        <label class="field-label">سنة ولدك في المدرسة</label>
+                        <select id="f-grade">
+                            <option value="" disabled selected>اختار السنة...</option>
+                            <option>السنة الأولى ابتدائي</option>
+                            <option>السنة الثانية ابتدائي</option>
+                            <option>السنة الثالثة ابتدائي</option>
+                            <option>السنة الرابعة ابتدائي</option>
+                            <option>السنة الخامسة ابتدائي</option>
+                        </select>
+                        <button class="submit-btn" onclick="doSignup()">احجز مجاناً ←</button>
+                        <p class="form-note"> معلوماتك في أمان، ما نمدوها لحتى واحد.</p>
+                    </div>
+                    <div class="success-state" id="form-success">
+                        <div class="check">✓</div>
+                        <h4>شكراً! تسجّلت بنجاح</h4>
+                        <p>راح نعيطولك شخصياً قبل الإطلاق. ولدك في يد أمانة 🌟</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="success-state" id="form-success">
-          <div class="check">✓</div>
-          <h4>شكراً! تسجّلت بنجاح</h4>
-          <p>غنتواصلوا معك بالشخص قبل الإطلاق. ولدك في يد أمانة 🌟</p>
+    </section>
+
+    <!-- PROBLEM -->
+    <section style="padding-top:0">
+        <div class="wrap">
+            <div class="reveal">
+                <span class="tag tag-r">المشاكل لي نعانو منها كل يوم</span>
+                <h2 class="sec-title">واش راك تعيش<br />كل عشية مع وليدك؟</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="prob-grid">
+                <div class="prob-card reveal">
+                    <div class="prob-stripe"></div>
+                    <span class="prob-num">المشكلة 01</span>
+                    <h4>وقت الحفاظة = حرب في الدار</h4>
+                    <p>كي يلحق وقت الواجبات والتمارين يبدا البكا والتهراب. القراية ولات عقوبة ليه، وستراس ليك كل عشية
+                        بدل ما تكون حاجة ممتعة.</p>
+                </div>
+                <div class="prob-card reveal">
+                    <div class="prob-stripe"></div>
+                    <span class="prob-num">المشكلة 02</span>
+                    <h4>يحفظ اليوم، ينسى غدوا</h4>
+                    <p>يدي نقطة مليحة في الفرض خاطر حفظ كلش كي الببغاء، بصح سمانة من بعد تلقاه نسى كلش. راه ينجح بصح
+                        ماهوش يبني في الساس.</p>
+                </div>
+                <div class="prob-card reveal">
+                    <div class="prob-stripe"></div>
+                    <span class="prob-num">المشكلة 03</span>
+                    <h4>ليكول وحدها ما تكفيش</h4>
+                    <p>القسم معمر، والمعلم ما يقدرش يركز مع كل تلميذ وحدو. وتزيد ديرلو "ليكور" في هاد السن؟ بزاف عليه
+                        وعلى جيبك.</p>
+                </div>
+                <div class="prob-card reveal">
+                    <div class="prob-stripe"></div>
+                    <span class="prob-num">المشكلة 04</span>
+                    <h4>يفقد الثقة في روحو بالخف</h4>
+                    <p>كي تجيه حاجة صعيبة كيما المات ولا القراية، يبدا يحس روحو "ما يفهمش" ويحشم يشارك. هاد الشي يقتل
+                        الموهبة تاعو من الصغر.</p>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- PROBLEM -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="reveal">
-      <span class="tag tag-r">المشكلة يلي كلنا نعيشوها</span>
-      <h2 class="sec-title">واش راك تشوف هذا<br/>كل يوم مع ولدك؟</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="prob-grid">
-      <div class="prob-card reveal">
-        <div class="prob-stripe"></div>
-        <span class="prob-num">المشكلة 01</span>
-        <h4>الشاشة كلات وقته</h4>
-        <p>الـ TikTok والـ YouTube عوّدوه على محتوى خفيف وسريع. كي تجيه الدراسة يتضجّر في الحال — ودماغه ما قادرش يركّز</p>
-      </div>
-      <div class="prob-card reveal">
-        <div class="prob-stripe"></div>
-        <span class="prob-num">المشكلة 02</span>
-        <h4>ينجح بلا ما يفهم</h4>
-        <p>يحفظ باش يعدّي الامتحان — وبعد جمعة ينسى كل شي. هذا مش تعليم، هذا حفظ مؤقت. وعلى المدى الطويل يخلّيه يحس بالنقص</p>
-      </div>
-      <div class="prob-card reveal">
-        <div class="prob-stripe"></div>
-        <span class="prob-num">المشكلة 03</span>
-        <h4>المعلّم المليح غالي</h4>
-        <p>معلّم موثوق وبثمن معقول صعب تلقاه. وما كل عائلة تقدر تدفع الدروس الخصوصية كل أسبوع — هذا مش عدل</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section>
-  <div class="wrap">
-    <div class="hiw-bg reveal">
-      <div style="text-align:center;margin-bottom:8px">
-        <span class="tag tag-p">كيفاش يخدم نجومي</span>
-        <h2 class="sec-title" style="text-align:center">ثلاث خطوات بسيطة</h2>
-        <div class="divider" style="margin:14px auto 0"></div>
-        <p class="sec-sub" style="text-align:center;margin:16px auto 0">ما فيه تعقيد. سجّل ولدك، خلّيه يتعلّم بأسلوبه، وتابع تقدّمه كل أسبوع.</p>
-      </div>
-      <div class="steps">
-        <div class="step reveal">
-          <div class="step-num">١</div>
-          <h4>سجّل ولدك في دقيقتين</h4>
-          <p>دخّل مستواه الدراسي والمواد يلي يحتاجها — التطبيق يبني له مساره الخاص من أول يوم</p>
+    <!-- HOW IT WORKS -->
+    <section>
+        <div class="wrap">
+            <div class="hiw-bg reveal">
+                <div style="text-align:center;margin-bottom:8px">
+                    <span class="tag tag-p">كيفاش يخدم خطوة</span>
+                    <h2 class="sec-title" style="text-align:center">ثلاث خطوات بسيطة</h2>
+                    <div class="divider" style="margin:14px auto 0"></div>
+                    <p class="sec-sub" style="text-align:center;margin:16px auto 0">ما فيه تعقيد. سجّل ولدك، خلّيه
+                        يتعلّم بأسلوبه، وتابع تقدّمه كل أسبوع.</p>
+                </div>
+                <div class="steps">
+                    <div class="step reveal">
+                        <div class="step-num">١</div>
+                        <h4>سجّل ولدك في دقيقتين</h4>
+                        <p>دخّل مستواه الدراسي والمواد يلي يحتاجها — التطبيق يبني له مساره الخاص من أول يوم</p>
+                    </div>
+                    <div class="step reveal">
+                        <div class="step-num">٢</div>
+                        <h4>يتعلّم بأسلوبه هو</h4>
+                        <p>شرح بالدارجة، ألعاب تعليمية، تحديات — التطبيق يتكيّف معاه ويزيد ولا ينقّص الصعوبة على حسب
+                            مستواه الحقيقي</p>
+                    </div>
+                    <div class="step reveal">
+                        <div class="step-num">٣</div>
+                        <h4>تتابع تقدّمه بصراحة</h4>
+                        <p>كل أسبوع تشوف واش تعلّم، وين تحسّن، وعلاش من قبل ما فهمش — في تقرير بسيط وواضح</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="step reveal">
-          <div class="step-num">٢</div>
-          <h4>يتعلّم بأسلوبه هو</h4>
-          <p>شرح بالدارجة، ألعاب تعليمية، تحديات — التطبيق يتكيّف معاه ويزيد ولا ينقّص الصعوبة على حسب مستواه الحقيقي</p>
+    </section>
+
+    <!-- FEATURES -->
+    <section style="padding-top:0">
+        <div class="wrap">
+            <div class="reveal">
+                <span class="tag tag-p">واش يتعلّم ولدك بالضبط</span>
+                <h2 class="sec-title">مش بس مواد —<br />نبنيوا شخصية</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="feat-grid">
+                <div class="feat-card reveal">
+                    <div class="feat-icon">📐</div>
+                    <h4>المواد الأساسية</h4>
+                    <p>رياضيات، عربية، فرنسية، علوم — بشرح يفهمه ولدك، مش يحفظه</p>
+                </div>
+                <div class="feat-card reveal">
+                    <div class="feat-icon">🧠</div>
+                    <h4>مهارات التفكير</h4>
+                    <p>كيفاش يحل مشاكل، يفكّر بإبداع، ويتصرّف — مهارات المستقبل يلي ما يعلّموهاش في المدرسة</p>
+                </div>
+                <div class="feat-card reveal">
+                    <div class="feat-icon">🎯</div>
+                    <h4>تعليم مخصّص</h4>
+                    <p>التطبيق يتعلّم من ولدك كل يوم ويضبط روحه على إيقاعه الحقيقي</p>
+                </div>
+                <div class="feat-card reveal">
+                    <div class="feat-icon">🎮</div>
+                    <h4>تعلّم بلا ملل</h4>
+                    <p>ألعاب، تحديات، مكافآت — يتعلّم من غير ما يحس أنه راه يذاكر</p>
+                </div>
+                <div class="feat-card reveal">
+                    <div class="feat-icon">👨‍👩‍👧</div>
+                    <h4>أنت يلي تتحكّم</h4>
+                    <p>تحدّد وقت الاستخدام، تتابع التقدّم، وتشوف محتوى ولدك — كل شي في إيدك</p>
+                </div>
+                <div class="feat-card reveal">
+                    <div class="feat-icon">🇩🇿</div>
+                    <h4>بلغتنا وحياتنا</h4>
+                    <p>شرح بالدارجة، أمثلة من حياتنا اليومية في الجزائر — ولدك يفهم لأن المحتوى دروه ليه هو</p>
+                </div>
+            </div>
         </div>
-        <div class="step reveal">
-          <div class="step-num">٣</div>
-          <h4>تتابع تقدّمه بصراحة</h4>
-          <p>كل أسبوع تشوف واش تعلّم، وين تحسّن، وعلاش من قبل ما فهمش — في تقرير بسيط وواضح</p>
+    </section>
+
+    <!-- COMMITMENT -->
+    <section>
+        <div class="wrap">
+            <div class="commit-wrap">
+                <div class="commit-intro reveal">
+                    <span class="tag tag-a">نقولوها صريحة</span>
+                    <h2 class="sec-title">ما نبيعولكش الهف —<br />نبنيوا حاجة حقيقية</h2>
+                    <div class="divider"></div>
+                    <p>خطوة مازال ما طلعش. راه فكرة في طريق التحقيق، وأنت يلي تسجّل اليوم تعاونا نفهموا واش يحتاجه
+                        ولدك بالضبط.</p>
+                    <p>ما فيه تدفع دروك — ولا ما فيه وعود فارغة. غير تواصل صادق بين عائلات تحب أحسن لأولادها وفريق يحب
+                        يدير حاجة تفرق.</p>
+                    <div class="honest-box">
+                        <div class="honest-image-wrapper">
+                            <img src="nodjob.png" alt="فريق نجومي" class="honest-img" />
+                            <div class="honest-img-overlay">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="commit-list reveal">
+                    <div class="commit-item">
+                        <div class="commit-dot" style="background:#DBEAFE;color:#2563EB">🔒</div>
+                        <div>
+                            <h5>معلوماتك في أمان</h5>
+                            <p>رقم تيليفونك ما نعطيوهش لحتى كان — نستعملوه غير باش نتواصلوا معك</p>
+                        </div>
+                    </div>
+                    <div class="commit-item">
+                        <div class="commit-dot" style="background:#ECFDF5;color:#059669">🎁</div>
+                        <div>
+                            <h5>الأوائل يدخلوا مجاناً</h5>
+                            <p>اللي يسجّل قبل الإطلاق يستفيد من الوصول المجاني — مش تمثيل، خاطر رأيك يهمّنا</p>
+                        </div>
+                    </div>
+                    <div class="commit-item">
+                        <div class="commit-dot" style="background:#FFFBEB;color:#D97706">📞</div>
+                        <div>
+                            <h5>نتصلوا بيك أنت</h5>
+                            <p>مش رسالة آلية — واحد من فريقنا يتصل بيك يسمع احتياجاتك ويجاوبك على أسئلتك</p>
+                        </div>
+                    </div>
+                    <div class="commit-item">
+                        <div class="commit-dot" style="background:#FFF1F2;color:#BE123C">🇩🇿</div>
+                        <div>
+                            <h5>درناه هنا في الجزائر</h5>
+                            <p>نعرفوا المنهاج، نحكوا الدارجة، ونعيشوا نفس الضغوط — لأننا منكم</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- FEATURES -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="reveal">
-      <span class="tag tag-p">واش يتعلّم ولدك بالضبط</span>
-      <h2 class="sec-title">مش بس مواد —<br/>نبنيوا شخصية</h2>
-      <div class="divider"></div>
-    </div>
-    <div class="feat-grid">
-      <div class="feat-card reveal">
-        <div class="feat-icon">📐</div>
-        <h4>المواد الأساسية</h4>
-        <p>رياضيات، عربية، فرنسية، علوم — بشرح يفهمه ولدك، مش يحفظه</p>
-      </div>
-      <div class="feat-card reveal">
-        <div class="feat-icon">🧠</div>
-        <h4>مهارات التفكير</h4>
-        <p>كيفاش يحل مشاكل، يفكّر بإبداع، ويتصرّف — مهارات المستقبل يلي ما يعلّموهاش في المدرسة</p>
-      </div>
-      <div class="feat-card reveal">
-        <div class="feat-icon">🎯</div>
-        <h4>تعليم مخصّص</h4>
-        <p>التطبيق يتعلّم من ولدك كل يوم ويضبط روحه على إيقاعه الحقيقي</p>
-      </div>
-      <div class="feat-card reveal">
-        <div class="feat-icon">🎮</div>
-        <h4>تعلّم بلا ملل</h4>
-        <p>ألعاب، تحديات، مكافآت — يتعلّم من غير ما يحس أنه راه يذاكر</p>
-      </div>
-      <div class="feat-card reveal">
-        <div class="feat-icon">👨‍👩‍👧</div>
-        <h4>أنت يلي تتحكّم</h4>
-        <p>تحدّد وقت الاستخدام، تتابع التقدّم، وتشوف محتوى ولدك — كل شي في إيدك</p>
-      </div>
-      <div class="feat-card reveal">
-        <div class="feat-icon">🇩🇿</div>
-        <h4>بلغتنا وحياتنا</h4>
-        <p>شرح بالدارجة، أمثلة من حياتنا اليومية في الجزائر — ولدك يفهم لأن المحتوى دروه ليه هو</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMMITMENT -->
-<section>
-  <div class="wrap">
-    <div class="commit-wrap">
-      <div class="commit-intro reveal">
-        <span class="tag tag-a">نقولوها صريحة</span>
-        <h2 class="sec-title">ما نبيعوكش حلم —<br/>نبنيوا حاجة حقيقية</h2>
-        <div class="divider"></div>
-        <p>نجومي ما طلعناه بعد. راه فكرة في طريق التحقيق، وأنت يلي تسجّل اليوم تعاوننا نفهموا واش يحتاجه ولدك بالضبط.</p>
-        <p>ما فيه تدفع دروك — ولا ما فيه وعود فارغة. غير تواصل صادق بين عيلات تحب أحسن لأولادها وفريق يحب يدير حاجة تفرق.</p>
-        <div class="honest-box">
-          <p>📸 <strong style="color:#92400E">Image Prompt (Nano Bananas):</strong><br/>
-          <span style="direction:ltr;display:block;margin-top:4px;font-size:.8rem;font-family:monospace">"Algerian mother sitting with her young child looking at a colorful educational tablet app together, warm cozy home, soft natural light, flat illustration style, blue and warm amber tones, joyful and caring atmosphere"</span></p>
+    <!-- FAQ -->
+    <section style="padding-top:0">
+        <div class="wrap">
+            <div class="reveal" style="text-align:center">
+                <span class="tag tag-p">الأسئلة الشايعة</span>
+                <h2 class="sec-title">أسئلة منطقية —<br />إجابات صريحة</h2>
+                <div class="divider" style="margin:14px auto 0"></div>
+            </div>
+            <div class="faq-list" style="margin:40px auto 0">
+                <div class="faq-item open">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span>واش خطوة يحل محل المعلّم؟</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-a">لا — وهذا مش هدفنا. خطوة يكمّل واش تعلّمه ولدك في المدرسة. يرجّعه يحبّ يتعلّم
+                        ويفهم بدل ما يحفظ. المعلّم المليح ما يعوّضه حتى شي، لكن خطوة يوفّر تمرين يومي مستمر بأسلوب
+                        يناسبه.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span>شكون يلي دار خطوة؟</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-a">فريق جزائري صغير من مختصين في التربية والتكنولوجيا. ما عندناش ملايين — عندنا
+                        قناعة بأن أطفال الجزائر يستاهلوا أحسن. واللي يسجّل اليوم يعاوننا نبنيوا حاجة تفرق فعلاً.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span>وقتاش يطلع التطبيق؟</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-a">قريباً — ما عندناش تاريخ محدد بعد. اللي يسجّل اليوم يكون من الأوائل يجرّبوه
+                        ويعطونا رأيهم. وعدنا نخبّروك قبل الإطلاق الرسمي بوقت كافي.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span>واش التطبيق آمن على ولدي؟</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-a">الأمان أولوية عندنا. التطبيق مصمّم بالكامل للأطفال — ما فيه إعلانات، ما فيه محتوى
+                        من برّا، وما فيه تواصل مع ناس ما تعرفهمش. أنت يلي تتحكّم في كل شي.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">
+                        <span>واش يصرا لو ما عجبنيش التطبيق؟</span>
+                        <span class="faq-arrow">▼</span>
+                    </button>
+                    <div class="faq-a">تقولنا علاش — وهذا يعاوننا نحسّنوه. ما فيه عقد ولا التزام. إذا ما عجبكش التطبيق
+                        بعد التجربة، رأيك يهمّنا أكثر من أي دفعة.</div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="commit-list reveal">
-        <div class="commit-item">
-          <div class="commit-dot" style="background:#DBEAFE;color:#2563EB">🔒</div>
-          <div>
-            <h5>معلوماتك في أمان</h5>
-            <p>رقم تيليفونك ما نعطيوهش لحتى كان — نستعملوه غير باش نتواصلوا معك</p>
-          </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section>
+        <div class="wrap">
+            <div class="final-wrap reveal">
+                <h2>جاهز تغيّر مستقبل ولدك؟</h2>
+                <p>سجّل دروك — مجاني، بلا التزام، وراح نعيطولك شخصياً.</p>
+                <div class="final-form" id="final-form-wrap">
+                    <input type="tel" id="final-phone" placeholder="رقم تيليفونك 📱" dir="ltr"
+                        style="text-align:left" />
+                    <button onclick="doFinalSignup()">احجز مكانك دروك ←</button>
+                </div>
+                <div class="final-success" id="final-success">
+                    <p>✓ تسجّلت بنجاح! غنتصلوا بيك قريباً 🌟</p>
+                </div>
+                <p class="final-note">🔒 معلوماتك آمنة — ما نعطيوهاش لحتى كان</p>
+            </div>
         </div>
-        <div class="commit-item">
-          <div class="commit-dot" style="background:#ECFDF5;color:#059669">🎁</div>
-          <div>
-            <h5>الأوائل يدخلوا مجاناً</h5>
-            <p>اللي يسجّل قبل الإطلاق يستفيد من الوصول المجاني — مش تمثيل، خاطر رأيك يهمّنا</p>
-          </div>
-        </div>
-        <div class="commit-item">
-          <div class="commit-dot" style="background:#FFFBEB;color:#D97706">📞</div>
-          <div>
-            <h5>نتصلوا بيك أنت</h5>
-            <p>مش رسالة آلية — واحد من فريقنا يتصل بيك يسمع احتياجاتك ويجاوبك على أسئلتك</p>
-          </div>
-        </div>
-        <div class="commit-item">
-          <div class="commit-dot" style="background:#FFF1F2;color:#BE123C">🇩🇿</div>
-          <div>
-            <h5>درناه هنا في الجزائر</h5>
-            <p>نعرفوا المنهاج، نحكوا الدارجة، ونعيشوا نفس الضغوط — لأننا منكم</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- FAQ -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="reveal" style="text-align:center">
-      <span class="tag tag-p">الأسئلة الشايعة</span>
-      <h2 class="sec-title">أسئلة منطقية —<br/>إجابات صريحة</h2>
-      <div class="divider" style="margin:14px auto 0"></div>
-    </div>
-    <div class="faq-list" style="margin:40px auto 0">
-      <div class="faq-item open">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span>واش نجومي يحل محل المعلّم؟</span>
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">لا — وهذا مش هدفنا. نجومي يكمّل واش تعلّمه ولدك في المدرسة. يرجّعه يحبّ يتعلّم ويفهم بدل ما يحفظ. المعلّم المليح ما يعوّضه حتى شي، لكن نجومي يوفّر تمرين يومي مستمر بأسلوب يناسبه.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span>شكون يلي دار نجومي؟</span>
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">فريق جزائري صغير من مختصين في التربية والتكنولوجيا. ما عندناش ملايين — عندنا قناعة بأن أطفال الجزائر يستاهلوا أحسن. واللي يسجّل اليوم يعاوننا نبنيوا حاجة تفرق فعلاً.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span>وقتاش يطلع التطبيق؟</span>
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">قريباً — ما عندناش تاريخ محدد بعد. اللي يسجّل اليوم يكون من الأوائل يجرّبوه ويعطونا رأيهم. وعدنا نخبّروك قبل الإطلاق الرسمي بوقت كافي.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span>واش التطبيق آمن على ولدي؟</span>
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">الأمان أولوية عندنا. التطبيق مصمّم بالكامل للأطفال — ما فيه إعلانات، ما فيه محتوى من برّا، وما فيه تواصل مع ناس ما تعرفهمش. أنت يلي تتحكّم في كل شي.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <span>واش يصرا لو ما عجبنيش التطبيق؟</span>
-          <span class="faq-arrow">▼</span>
-        </button>
-        <div class="faq-a">تقولنا علاش — وهذا يعاوننا نحسّنوه. ما فيه عقد ولا التزام. إذا ما عجبكش التطبيق بعد التجربة، رأيك يهمّنا أكثر من أي دفعة.</div>
-      </div>
-    </div>
-  </div>
-</section>
+    <footer>
+        <p>درناه بـ ❤️ في <strong>الجزائر</strong></p>
+        <p style="margin-top:4px;color:#94A3B8">خطوة © 2026 — التطبيق قريباً يطلع · سجّل دروك للوصول المبكر</p>
+    </footer>
 
-<!-- FINAL CTA -->
-<section>
-  <div class="wrap">
-    <div class="final-wrap reveal">
-      <h2>جاهز تغيّر مستقبل ولدك؟</h2>
-      <p>سجّل دروك — مجاني، بلا التزام، وغنتواصلوا معك بالشخص.</p>
-      <div class="final-form" id="final-form-wrap">
-        <input type="tel" id="final-phone" placeholder="رقم تيليفونك 📱" dir="ltr" style="text-align:left"/>
-        <button onclick="doFinalSignup()">احجز مكانك دروك ←</button>
-      </div>
-      <div class="final-success" id="final-success">
-        <p>✓ تسجّلت بنجاح! غنتصلوا بيك قريباً 🌟</p>
-      </div>
-      <p class="final-note">🔒 معلوماتك آمنة — ما نعطيوهاش لحتى كان</p>
-    </div>
-  </div>
-</section>
+    <script>
+        const SHEET_URL = "https://script.google.com/macros/s/AKfycbz9C_TXnKVt96nc9MsmbOTVTFyq-UfrqIlk5a2LPlfcUnrMQT5ANcBnmZx3Eyl1smHePA/exec";
+        function sendToSheet(data) {
+            const params = new URLSearchParams(data);
 
-<footer>
-  <p>درناه بـ ❤️ في <strong>الجزائر</strong></p>
-  <p style="margin-top:4px;color:#94A3B8">نجومي © 2025 — التطبيق قريباً يطلع · سجّل دروك للوصول المبكر</p>
-</footer>
+            fetch(SHEET_URL + "?" + params.toString(), {
+                method: "GET",
+                mode: "no-cors"
+            }).catch(err => console.error(err));
+        }
 
-<script>
-const SHEET_URL = "https://script.google.com/macros/s/AKfycbz9C_TXnKVt96nc9MsmbOTVTFyq-UfrqIlk5a2LPlfcUnrMQT5ANcBnmZx3Eyl1smHePA/exec";
+        function doSignup() {
+            const name = document.getElementById('f-name').value.trim();
+            const phone = document.getElementById('f-phone').value.trim();
+            const grade = document.getElementById('f-grade').value;
+            if (!phone) { alert('من فضلك دخّل رقم تيليفونك 📱'); return; }
+            sendToSheet({ name, phone, grade, src: 'hero' });
+            document.getElementById('form-inner').style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+        }
 
-function sendToSheet(data) {
-  const params = new URLSearchParams(data).toString();
-  const img = new Image();
-  img.src = SHEET_URL + "?" + params;
-}
+        function doFinalSignup() {
+            const phone = document.getElementById('final-phone').value.trim();
+            if (!phone) { alert('من فضلك دخّل رقم تيليفونك 📱'); return; }
+            sendToSheet({ phone, src: 'final' });
+            document.getElementById('final-form-wrap').style.display = 'none';
+            document.getElementById('final-success').style.display = 'block';
+        }
 
-function doSignup() {
-  const name  = document.getElementById('f-name').value.trim();
-  const phone = document.getElementById('f-phone').value.trim();
-  const grade = document.getElementById('f-grade').value;
-  if (!phone) { alert('من فضلك دخّل رقم تيليفونك 📱'); return; }
-  sendToSheet({ name, phone, grade, src: 'hero' });
-  document.getElementById('form-inner').style.display = 'none';
-  document.getElementById('form-success').style.display = 'block';
-}
+        function toggleFaq(btn) {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+            if (!isOpen) item.classList.add('open');
+        }
 
-function doFinalSignup() {
-  const phone = document.getElementById('final-phone').value.trim();
-  if (!phone) { alert('من فضلك دخّل رقم تيليفونك 📱'); return; }
-  sendToSheet({ phone, src: 'final' });
-  document.getElementById('final-form-wrap').style.display = 'none';
-  document.getElementById('final-success').style.display = 'block';
-}
-
-function toggleFaq(btn) {
-  const item = btn.closest('.faq-item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
-}
-
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
 </body>
+
 </html>
