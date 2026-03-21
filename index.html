@@ -927,8 +927,15 @@
                 <div class="hero-text">
                     <div class="hero-badge">🇩🇿 تطبيق جزائري — قريباً يطلع</div>
                     <h1>وليدك يستاهل<br />يفهم، مش<br /><em>ينجح برك</em></h1>
-                    <p class="hero-p" style="margin-top:18px">خطوة يعلّم أطفال الابتدائي يفكّروا بدل ما يحفظوا — بأسلوب
-                        يتكيّف مع كل طفل، وبطريقة تريّح بال كل والدين.</p>
+                    <p class="hero-p" style="margin-top:18px">خطوة يعلّم أطفال الابتدائي يفكّروا بدل ما يحفظوا.
+                        <strong>تطبيق في تيليفونك ولا الطابليت</strong> يتكيّف مع كل طفل، وبطريقة تريّح بال كل والدين.
+                    </p>
+
+                    <div class="mockup-wrapper" style="margin-top: 24px; text-align: right;">
+                        <img src="app-mockup.png" alt="واجهة تطبيق خطوة"
+                            style="max-width: 90%; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 4px solid #fff;" />
+                    </div>
+
                     <div style="display:flex;gap:24px;margin-top:32px;flex-wrap:wrap">
                         <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted)">
                             <span
@@ -940,33 +947,23 @@
                                 style="width:18px;height:18px;background:#ECFDF5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#059669">✓</span>بلا
                             التزام
                         </div>
-                        <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted)">
-                            <span
-                                style="width:18px;height:18px;background:#ECFDF5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#059669">✓</span>معلوماتك
-                            محمية
-                        </div>
                     </div>
                 </div>
 
                 <div id="main-form" class="form-card">
                     <div id="form-inner">
                         <h3>احجز مكانك قبل الإطلاق</h3>
-                        <p>نتصلوا بيك بالشخص قبل ما يطلع رسمياً — <strong>الأماكن محدودة</strong></p>
-                        <label class="field-label">اسمك (ولي الأمر)</label>
-                        <input type="text" id="f-name" placeholder="مثلاً: محمد ولا فاطمة" />
-                        <label class="field-label">رقم تيليفونك 📱</label>
-                        <input type="tel" id="f-phone" placeholder="05 XX XX XX XX" dir="ltr" style="text-align:left" />
-                        <label class="field-label">سنة ولدك في المدرسة</label>
-                        <select id="f-grade">
-                            <option value="" disabled selected>اختار السنة...</option>
-                            <option>السنة الأولى ابتدائي</option>
-                            <option>السنة الثانية ابتدائي</option>
-                            <option>السنة الثالثة ابتدائي</option>
-                            <option>السنة الرابعة ابتدائي</option>
-                            <option>السنة الخامسة ابتدائي</option>
-                        </select>
-                        <button class="submit-btn" onclick="doSignup()">احجز مجاناً ←</button>
-                        <p class="form-note"> معلوماتك في أمان، ما نمدوها لحتى واحد.</p>
+                        <p>نتصلوا بيك شخصياً قبل ما يطلع رسمياً — <strong>الأماكن محدودة</strong></p>
+
+                        <label class="field-label">رقم تيليفونك (واتساب أحسن) 📱</label>
+                        <input type="tel" id="f-phone" placeholder="0555 XX XX XX" dir="ltr"
+                            style="text-align:left; font-size: 1.1rem; padding: 12px;" />
+
+                        <button class="submit-btn" onclick="doSignup()" style="margin-top: 16px;">احجز مجاناً ←</button>
+
+                        <p class="form-note" style="margin-top: 12px; font-weight: bold; color: #059669;">لن تدفع شيئاً
+                            اليوم. تسجيلك مجاني بالكامل.</p>
+                        <p class="form-note">معلوماتك في أمان، ما نمدوها لحتى واحد.</p>
                     </div>
                     <div class="success-state" id="form-success">
                         <div class="check">✓</div>
@@ -1027,7 +1024,7 @@
                     <span class="tag tag-p">كيفاش يخدم خطوة</span>
                     <h2 class="sec-title" style="text-align:center">ثلاث خطوات بسيطة</h2>
                     <div class="divider" style="margin:14px auto 0"></div>
-                    <p class="sec-sub" style="text-align:center;margin:16px auto 0">ما فيه تعقيد. سجّل ولدك، خلّيه
+                    <p class="sec-sub" style="text-align:center;margin:16px auto 0">ما كانش تعقيد. سجّل ولدك، خلّيه
                         يتعلّم بأسلوبه، وتابع تقدّمه كل أسبوع.</p>
                 </div>
                 <div class="steps">
@@ -1057,14 +1054,14 @@
         <div class="wrap">
             <div class="reveal">
                 <span class="tag tag-p">واش يتعلّم ولدك بالضبط</span>
-                <h2 class="sec-title">مش بس مواد —<br />نبنيوا شخصية</h2>
+                <h2 class="sec-title">ماشي غير مواد —<br />نبنيوا شخصية</h2>
                 <div class="divider"></div>
             </div>
             <div class="feat-grid">
                 <div class="feat-card reveal">
                     <div class="feat-icon">📐</div>
                     <h4>المواد الأساسية</h4>
-                    <p>رياضيات، عربية، فرنسية، علوم — بشرح يفهمه ولدك، مش يحفظه</p>
+                    <p>رياضيات، عربية، فرنسية، علوم — بشرح يفهمه ولدك، ماشي يحفظه</p>
                 </div>
                 <div class="feat-card reveal">
                     <div class="feat-icon">🧠</div>
@@ -1084,7 +1081,7 @@
                 <div class="feat-card reveal">
                     <div class="feat-icon">👨‍👩‍👧</div>
                     <h4>أنت يلي تتحكّم</h4>
-                    <p>تحدّد وقت الاستخدام، تتابع التقدّم، وتشوف محتوى ولدك — كل شي في إيدك</p>
+                    <p>تحدّد وقت الاستخدام، تتابع التقدّم، وتشوف محتوى ولدك — كل شي في يدك</p>
                 </div>
                 <div class="feat-card reveal">
                     <div class="feat-icon">🇩🇿</div>
@@ -1105,7 +1102,7 @@
                     <div class="divider"></div>
                     <p>خطوة مازال ما طلعش. راه فكرة في طريق التحقيق، وأنت يلي تسجّل اليوم تعاونا نفهموا واش يحتاجه
                         ولدك بالضبط.</p>
-                    <p>ما فيه تدفع دروك — ولا ما فيه وعود فارغة. غير تواصل صادق بين عائلات تحب أحسن لأولادها وفريق يحب
+                    <p>ماكاش تدفع دروك — ولا وعود فارغة. غير تواصل صادق بين عائلات تحب أحسن لأولادها وفريق يحب
                         يدير حاجة تفرق.</p>
                     <div class="honest-box">
                         <div class="honest-image-wrapper">
@@ -1127,14 +1124,14 @@
                         <div class="commit-dot" style="background:#ECFDF5;color:#059669">🎁</div>
                         <div>
                             <h5>الأوائل يدخلوا مجاناً</h5>
-                            <p>اللي يسجّل قبل الإطلاق يستفيد من الوصول المجاني — مش تمثيل، خاطر رأيك يهمّنا</p>
+                            <p>اللي يسجّل قبل الإطلاق يستفيد من الوصول المجاني — رأيك يهمّنا</p>
                         </div>
                     </div>
                     <div class="commit-item">
                         <div class="commit-dot" style="background:#FFFBEB;color:#D97706">📞</div>
                         <div>
                             <h5>نتصلوا بيك أنت</h5>
-                            <p>مش رسالة آلية — واحد من فريقنا يتصل بيك يسمع احتياجاتك ويجاوبك على أسئلتك</p>
+                            <p>ماشي رسالة آلية — واحد من فريقنا يتصل بيك يسمع احتياجاتك ويجاوبك على أسئلتك</p>
                         </div>
                     </div>
                     <div class="commit-item">
@@ -1160,11 +1157,11 @@
             <div class="faq-list" style="margin:40px auto 0">
                 <div class="faq-item open">
                     <button class="faq-q" onclick="toggleFaq(this)">
-                        <span>واش خطوة يحل محل المعلّم؟</span>
+                        <span>هل خطوة يحل محل المعلّم؟</span>
                         <span class="faq-arrow">▼</span>
                     </button>
-                    <div class="faq-a">لا — وهذا مش هدفنا. خطوة يكمّل واش تعلّمه ولدك في المدرسة. يرجّعه يحبّ يتعلّم
-                        ويفهم بدل ما يحفظ. المعلّم المليح ما يعوّضه حتى شي، لكن خطوة يوفّر تمرين يومي مستمر بأسلوب
+                    <div class="faq-a">لا — وهذا ماشي هدفنا. خطوة يكمّل واش تعلّمه ولدك في المدرسة. يرجّعه يحبّ يتعلّم
+                        ويفهم بدل ما يحفظ. المعلّم المليح ما يعوّضوش حتى واحد لكن خطوة يوفّر تمرين يومي مستمر بأسلوب
                         يناسبه.</div>
                 </div>
                 <div class="faq-item">
@@ -1180,12 +1177,13 @@
                         <span>وقتاش يطلع التطبيق؟</span>
                         <span class="faq-arrow">▼</span>
                     </button>
-                    <div class="faq-a">قريباً — ما عندناش تاريخ محدد بعد. اللي يسجّل اليوم يكون من الأوائل يجرّبوه
+                    <div class="faq-a">قريباً — ما عندناش تاريخ محدد. قبل بداية الموسم الدراسي الجديد. اللي يسجّل
+                        اليوم يكون من الأوائل يجرّبوه
                         ويعطونا رأيهم. وعدنا نخبّروك قبل الإطلاق الرسمي بوقت كافي.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-q" onclick="toggleFaq(this)">
-                        <span>واش التطبيق آمن على ولدي؟</span>
+                        <span>التطبيق آمن على ولدي؟</span>
                         <span class="faq-arrow">▼</span>
                     </button>
                     <div class="faq-a">الأمان أولوية عندنا. التطبيق مصمّم بالكامل للأطفال — ما فيه إعلانات، ما فيه محتوى
@@ -1196,8 +1194,8 @@
                         <span>واش يصرا لو ما عجبنيش التطبيق؟</span>
                         <span class="faq-arrow">▼</span>
                     </button>
-                    <div class="faq-a">تقولنا علاش — وهذا يعاوننا نحسّنوه. ما فيه عقد ولا التزام. إذا ما عجبكش التطبيق
-                        بعد التجربة، رأيك يهمّنا أكثر من أي دفعة.</div>
+                    <div class="faq-a">تقولنا علاش — وهذا يعاوننا نحسّنوه. ما كاين عقد ولا التزام. إذا ما عجبكش التطبيق
+                        بعد التجربة، رأيك يهمّنا أكثر من أي حاجة.</div>
                 </div>
             </div>
         </div>
@@ -1208,23 +1206,23 @@
         <div class="wrap">
             <div class="final-wrap reveal">
                 <h2>جاهز تغيّر مستقبل ولدك؟</h2>
-                <p>سجّل دروك — مجاني، بلا التزام، وراح نعيطولك شخصياً.</p>
+                <p>سجّل دوكا — مجاني، بلا التزام، وراح نعيطولك شخصياً.</p>
                 <div class="final-form" id="final-form-wrap">
-                    <input type="tel" id="final-phone" placeholder="رقم تيليفونك 📱" dir="ltr"
+                    <input type="tel" id="final-phone" placeholder="رقم تيليفونك (واتساب) 📱" dir="ltr"
                         style="text-align:left" />
-                    <button onclick="doFinalSignup()">احجز مكانك دروك ←</button>
+                    <button onclick="doFinalSignup()">احجز مكانك دوكا ←</button>
                 </div>
                 <div class="final-success" id="final-success">
-                    <p>✓ تسجّلت بنجاح! غنتصلوا بيك قريباً 🌟</p>
+                    <p>✓ تسجّلت بنجاح! راح نعيطولك قريباً 🌟</p>
                 </div>
-                <p class="final-note">🔒 معلوماتك آمنة — ما نعطيوهاش لحتى كان</p>
+                <p class="final-note">🔒 معلوماتك آمنة — ما نعطيوهاش لحتى كان. لن تدفع شيئاً اليوم.</p>
             </div>
         </div>
     </section>
 
     <footer>
         <p>درناه بـ ❤️ في <strong>الجزائر</strong></p>
-        <p style="margin-top:4px;color:#94A3B8">خطوة © 2026 — التطبيق قريباً يطلع · سجّل دروك للوصول المبكر</p>
+        <p style="margin-top:4px;color:#94A3B8">خطوة © 2026 — التطبيق قريباً يطلع · سجّل دوكا للوصول المبكر</p>
     </footer>
 
     <script>
