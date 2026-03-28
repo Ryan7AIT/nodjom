@@ -7,7 +7,6 @@
     <title>Khotwa - خطوة</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;900&display=swap"
         rel="stylesheet" />
-
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         * {
@@ -129,26 +128,6 @@
             padding: 88px 0
         }
 
-        .honest-box {
-            background: none;
-            padding: 0;
-            border: none;
-            margin-top: 1.5rem;
-            transform: rotate(-1.5deg);
-            display: inline-block;
-        }
-
-        .honest-img {
-            width: 100%;
-            height: 340px;
-            object-fit: cover;
-            border-radius: 4px;
-            display: block;
-            padding: 10px 10px 40px 10px;
-            background: #fff;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
-        }
-
         h2.sec-title {
             font-size: clamp(1.7rem, 3.5vw, 2.5rem);
             font-weight: 900;
@@ -172,6 +151,7 @@
             margin: 14px 0 28px
         }
 
+        /* ─── HERO ─── */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -221,7 +201,7 @@
 
         .hero-inner {
             display: grid;
-            grid-template-columns: 1fr 400px;
+            grid-template-columns: 1fr 420px;
             gap: 60px;
             align-items: center;
             position: relative;
@@ -285,6 +265,50 @@
             max-width: 480px
         }
 
+        /* ── Illustration placeholder ── */
+        .hero-illustration {
+            margin-top: 32px;
+            margin-bottom: 8px;
+            border-radius: 20px;
+            overflow: hidden;
+            max-width: 420px;
+            background: linear-gradient(135deg, #EFF6FF 0%, #FDF2F8 100%);
+            border: 1px solid var(--border);
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-illustration img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 20px;
+        }
+
+        /* shown when no image loaded yet */
+        .hero-illustration-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 32px;
+            text-align: center
+        }
+
+        .hero-illustration-placeholder span {
+            font-size: 3rem
+        }
+
+        .hero-illustration-placeholder p {
+            font-size: .8rem;
+            color: var(--muted)
+        }
+
+        /* ─── FORM CARD ─── */
         .form-card {
             background: var(--surface);
             border-radius: 24px;
@@ -300,16 +324,61 @@
             margin-bottom: 6px
         }
 
-        .form-card p {
+        .form-card>div>p {
             font-size: .82rem;
             color: var(--muted);
             margin-bottom: 22px;
             line-height: 1.7
         }
 
-        .form-card p strong {
+        .form-card>div>p strong {
             color: var(--p);
             font-weight: 700
+        }
+
+        /* social proof strip */
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #ECFDF5;
+            border: 1px solid #A7F3D0;
+            border-radius: 12px;
+            padding: 10px 14px;
+            margin-bottom: 20px
+        }
+
+        .social-proof-avatars {
+            display: flex
+        }
+
+        .social-proof-avatars span {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .75rem;
+            font-weight: 700;
+            color: #fff;
+            margin-left: -6px
+        }
+
+        .social-proof-avatars span:first-child {
+            margin-left: 0
+        }
+
+        .social-proof-text {
+            font-size: .78rem;
+            color: #065F46;
+            font-weight: 600;
+            line-height: 1.5
+        }
+
+        .social-proof-text strong {
+            color: #059669
         }
 
         label.field-label {
@@ -320,16 +389,13 @@
             margin-bottom: 6px
         }
 
-        input[type=text],
-        input[type=tel],
-        input[type=email],
-        select {
+        input[type=tel] {
             width: 100%;
             padding: 12px 14px;
             border: 1.5px solid var(--border2);
             border-radius: 12px;
             font-family: 'Cairo', sans-serif;
-            font-size: .92rem;
+            font-size: 1.1rem;
             color: var(--text);
             background: #fff;
             outline: none;
@@ -337,14 +403,9 @@
             margin-bottom: 14px
         }
 
-        input:focus,
-        select:focus {
+        input:focus {
             border-color: var(--p);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, .1)
-        }
-
-        select {
-            cursor: pointer
         }
 
         .submit-btn {
@@ -407,6 +468,7 @@
             line-height: 1.7
         }
 
+        /* ─── PROBLEMS ─── */
         .prob-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -462,6 +524,7 @@
             line-height: 1.85
         }
 
+        /* ─── HOW IT WORKS ─── */
         .hiw-bg {
             background: linear-gradient(160deg, #EFF6FF 0%, #FDF2F8 100%);
             border-radius: 32px;
@@ -541,6 +604,7 @@
             margin: 0 auto
         }
 
+        /* ─── FEATURES ─── */
         .feat-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -587,6 +651,7 @@
             line-height: 1.85
         }
 
+        /* ─── COMMITMENT ─── */
         .commit-wrap {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -601,19 +666,24 @@
             margin-bottom: 12px
         }
 
-        .commit-intro .honest-box {
-            background: #FFFBEB;
-            border: 1px solid #FDE68A;
-            border-radius: 16px;
-            padding: 20px;
-            margin-top: 24px
+        .honest-box {
+            background: none;
+            padding: 0;
+            border: none;
+            margin-top: 1.5rem;
+            transform: rotate(-1.5deg);
+            display: inline-block;
         }
 
-        .honest-box p {
-            font-size: .875rem;
-            color: #92400E;
-            line-height: 1.9;
-            margin: 0
+        .honest-img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+            padding: 10px 10px 40px 10px;
+            background: #fff;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
         }
 
         .commit-list {
@@ -657,6 +727,7 @@
             margin: 0
         }
 
+        /* ─── FAQ ─── */
         .faq-list {
             margin-top: 40px;
             display: flex;
@@ -721,6 +792,7 @@
             color: var(--p)
         }
 
+        /* ─── FINAL CTA ─── */
         .final-wrap {
             background: linear-gradient(135deg, var(--p) 0%, #3B82F6 50%, var(--pk) 100%);
             border-radius: 32px;
@@ -760,7 +832,7 @@
             position: relative
         }
 
-        .final-wrap p {
+        .final-wrap>p {
             color: rgba(255, 255, 255, .8);
             font-size: 1rem;
             line-height: 1.9;
@@ -892,6 +964,10 @@
             nav {
                 padding: 0 20px
             }
+
+            .hero-illustration {
+                max-width: 100%
+            }
         }
 
         @media(max-width:580px) {
@@ -917,7 +993,7 @@
         <div class="logo">خطوة <sub>✦</sub></div>
     </nav>
 
-    <!-- HERO -->
+    <!-- ═══════════════ HERO ═══════════════ -->
     <section class="hero">
         <div class="hero-deco">
             <span class="deco1"></span><span class="deco2"></span><span class="deco3"></span>
@@ -925,13 +1001,20 @@
         <div class="wrap">
             <div class="hero-inner">
                 <div class="hero-text">
-                    <div class="hero-badge">🇩🇿 تطبيق جزائري — قريباً يطلع</div>
-                    <h1>وليدك يستاهل<br />يفهم، مش<br /><em>ينجح برك</em></h1>
-                    <p class="hero-p" style="margin-top:18px">خطوة يعلّم أطفال الابتدائي يفكّروا بدل ما يحفظوا.
-                        <strong>تطبيق في تيليفونك ولا الطابليت</strong> يتكيّف مع كل طفل، وبطريقة تريّح بال كل والدين.
+                    <div class="hero-badge">🇩🇿 تطبيق جزائري — قريب يخرج 🌟</div>
+                    <h1>وليدك يستاهل<br />يفهم، ماشي<br /><em>ينجح برك</em></h1>
+                    <p class="hero-p" style="margin-top:18px">
+                        خطوة يعلّم أطفال الابتدائي يفكّروا بدل ما يحفظوا.
+                        <strong>تطبيق في تيليفونك ولا فالحاسوب</strong> يتكيّف مع كل طفل، وبطريقة تريّح بال كل والدين.
                     </p>
 
-                    <div style="display:flex;gap:24px;margin-top:32px;flex-wrap:wrap">
+                    <div
+                        style="margin-top:32px;border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(37,99,235,.15);border:1px solid var(--border)">
+                        <img src="nodjob.png" alt="أم وولدها يتعلّموا مع خطوة"
+                            style="width:100%;display:block;border-radius:24px" />
+                    </div>
+
+                    <div style="display:flex;gap:24px;margin-top:20px;flex-wrap:wrap">
                         <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--muted)">
                             <span
                                 style="width:18px;height:18px;background:#ECFDF5;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:#059669">✓</span>مجاني
@@ -950,14 +1033,24 @@
                         <h3>احجز مكانك قبل الإطلاق</h3>
                         <p>نتصلوا بيك شخصياً قبل ما يطلع رسمياً — <strong>الأماكن محدودة</strong></p>
 
+                        <div class="social-proof">
+                            <div style="font-size:1.6rem;line-height:1">🇩🇿</div>
+                            <div class="social-proof-text">
+                                درناه لأن ولادنا واجهوا نفس المشكلة — فريق جزائري من أولياء أمور ومختصين في التربية
+                            </div>
+                        </div>
+
                         <label class="field-label">رقم تيليفونك (واتساب أحسن) 📱</label>
-                        <input type="tel" id="f-phone" placeholder="0555 XX XX XX" dir="ltr"
+                        <input type="tel" id="f-phone" placeholder="0X XX XX XX XX" dir="ltr"
                             style="text-align:left; font-size: 1.1rem; padding: 12px;" />
 
-                        <button class="submit-btn" onclick="doSignup()" style="margin-top: 16px;">احجز مجاناً ←</button>
+                        <!-- ✦ Improved CTA copy ✦ -->
+                        <button class="submit-btn" onclick="doSignup()">
+                            سجّل مجاناً — نتصلوا بيك هذا الأسبوع ←
+                        </button>
 
-                        <p class="form-note" style="margin-top: 12px; font-weight: bold; color: #059669;">لن تدفع شيئاً
-                            اليوم. تسجيلك مجاني بالكامل.</p>
+                        <p class="form-note" style="margin-top:12px;font-weight:bold;color:#059669">لن تدفع شيئاً اليوم.
+                            تسجيلك مجاني بالكامل.</p>
                         <p class="form-note">معلوماتك في أمان، ما نمدوها لحتى واحد.</p>
                     </div>
                     <div class="success-state" id="form-success">
@@ -970,38 +1063,42 @@
         </div>
     </section>
 
-<!-- PROBLEM -->
-<section style="padding-top:0">
-    <div class="wrap">
-        <div class="reveal">
-            <span class="tag tag-r">المشاكل لي نعانو منها كل يوم</span>
-            <h2 class="sec-title">واش راك تعيش<br />كل عشية مع وليدك؟</h2>
-            <div class="divider"></div>
-        </div>
-        <div class="prob-grid">
-<div class="prob-card reveal">
-    <div class="prob-stripe"></div>
-    <span class="prob-num">المشكلة 01</span>
-    <h4>الشاشة تاكل دماغه — وانت شايف</h4>
-    <p>ريلز، يوتيوب، تيكتوك — كل فيديو أقصر من اللي قبله. دماغ ولدك تعوّد على السرعة وولى ما يقدرش يركّز دقيقتين. خطوة يقدم له محتوى يشدّ انتباهه بأسلوب جيله — بصح يبنيله دماغ يفكّر، ما يستهلكش.</p>
-</div>
-            <div class="prob-card reveal">
-                <div class="prob-stripe"></div>
-                <span class="prob-num">المشكلة 02</span>
-                <h4>يحفظ اليوم، ينسى غدوا</h4>
-                <p>يجيب نقطة مليحة في الفرض — بصح سمانة من بعد كأنو ما شافش الدرس. ولدك ما هوش غبي، غير ما حدّ علّموش كيفاش يفهم بدل ما يحفظ.</p>
+    <!-- ═══════════════ PROBLEMS ═══════════════ -->
+    <section style="padding-top:0">
+        <div class="wrap">
+            <div class="reveal">
+                <span class="tag tag-r">المشاكل لي نعانو منها كل يوم</span>
+                <h2 class="sec-title">واش راك تعيش<br />كل عشية مع وليدك؟</h2>
+                <div class="divider"></div>
             </div>
-            <div class="prob-card reveal">
-                <div class="prob-stripe"></div>
-                <span class="prob-num">المشكلة 03</span>
-                <h4>يفقد الثقة في روحو بالخف</h4>
-                <p>كي تجيه حاجة صعيبة يبدا يحس "أنا ما نفهمش" ويحشم يحاول. هاد الإحساس — إذا بقا — هو يلي يوقف مواهبه من قبل ما تطلع.</p>
-            </div>
-        </div>
-    </div>
-</section>
+            <div class="prob-grid">
 
-    <!-- HOW IT WORKS -->
+                <div class="prob-card reveal">
+                    <div class="prob-stripe"></div>
+                    <span class="prob-num">المشكلة 01</span>
+                    <h4>ساعتين كرتون — وكي تقولوله "اقرا" يبكي</h4>
+                    <p>دماغه تعوّد على كل شي يجي سريع وبلا مجهود. خطوة تشدّ انتباهه — بصح بطريقة تبني في دماغه، ما
+                        تفرغوش.</p>
+                </div>
+
+                <div class="prob-card reveal">
+                    <div class="prob-stripe"></div>
+                    <span class="prob-num">المشكلة 02</span>
+                    <h4>يحفظ اليوم، ينسى غدوا</h4>
+                    <p>يجيب نقطة مليحة في الفرض — بصح سمانة من بعد كأنو ما شافش الدرس. ولدك ما هوش غبي، غير ما حدّ
+                        علّموش يفهم.</p>
+                </div>
+
+                <div class="prob-card reveal">
+                    <div class="prob-stripe"></div>
+                    <span class="prob-num">المشكلة 03</span>
+                    <h4>يفقد الثقة في روحو بالخف</h4>
+                    <p>كي تجيه حاجة صعيبة يقول "أنا ما نفهمش" ويوقف. هاد الإحساس — إذا بقا — هو يلي يوقف مواهبه.</p>
+                </div>
+            </div>
+    </section>
+
+    <!-- ═══════════════ HOW IT WORKS ═══════════════ -->
     <section>
         <div class="wrap">
             <div class="hiw-bg reveal">
@@ -1012,18 +1109,19 @@
                     <p class="sec-sub" style="text-align:center;margin:16px auto 0">ما كانش تعقيد. سجّل ولدك، خلّيه
                         يتعلّم بأسلوبه، وتابع تقدّمه كل أسبوع.</p>
                 </div>
-
-
                 <div class="steps">
                     <div class="step reveal">
                         <div class="step-num">١</div>
                         <h4>سجّل ولدك في دقيقتين</h4>
-                        <p>دخّل مستواه وما يحتاجه — التطبيق يبني له مساره الخاص من أول يوم. ما في حل وسط، ما في برنامج عام.</p>
+                        <p>دخّل مستواه وما يحتاجه — التطبيق يبني له مساره الخاص من أول يوم. ما في حل وسط، ما في برنامج
+                            عام.</p>
                     </div>
                     <div class="step reveal">
                         <div class="step-num">٢</div>
                         <h4>التطبيق يتعلّم من ولدك — كل يوم</h4>
-                        <p>مع كل تمرين، التطبيق يفهم أكثر: واش يجيبه، وين يضعف، كيفاش يفكّر. ويضبط روحه على حسابه — بدون ما تدير والو.</p>
+                        <!-- ✦ More concrete description ✦ -->
+                        <p>يحلّ تمرين في الرياضيات وغلط — التطبيق يشوف وين ضعف بالضبط ويرجّعله نفس الفكرة بطريقة أخرى.
+                            كل ما يلعب، يتحسّن.</p>
                     </div>
                     <div class="step reveal">
                         <div class="step-num">٣</div>
@@ -1035,7 +1133,7 @@
         </div>
     </section>
 
-    <!-- FEATURES -->
+    <!-- ═══════════════ FEATURES ═══════════════ -->
     <section style="padding-top:0">
         <div class="wrap">
             <div class="reveal">
@@ -1043,7 +1141,6 @@
                 <h2 class="sec-title">ماشي غير مواد —<br />نبنيوا شخصية</h2>
                 <div class="divider"></div>
             </div>
-
             <div class="feat-grid">
                 <div class="feat-card reveal">
                     <div class="feat-icon">🧠</div>
@@ -1053,7 +1150,8 @@
                 <div class="feat-card reveal">
                     <div class="feat-icon">🤖</div>
                     <h4>التطبيق يتعلّم منه هو</h4>
-                    <p>كل ما يستعمل التطبيق، التطبيق يفهمه أكثر — يعرف واش يصعّب، واش يرجّع، وكيفاش يشرحله بأسلوبه هو</p>
+                    <p>كل ما يستعمل التطبيق، التطبيق يفهمه أكثر — يعرف واش يصعّب، واش يرجّع، وكيفاش يشرحله بأسلوبه هو
+                    </p>
                 </div>
                 <div class="feat-card reveal">
                     <div class="feat-icon">💡</div>
@@ -1079,7 +1177,7 @@
         </div>
     </section>
 
-    <!-- COMMITMENT -->
+    <!-- ═══════════════ COMMITMENT ═══════════════ -->
     <section>
         <div class="wrap">
             <div class="commit-wrap">
@@ -1087,16 +1185,24 @@
                     <span class="tag tag-a">نقولوها صريحة</span>
                     <h2 class="sec-title">ما نبيعولكش الهف —<br />نبنيوا حاجة حقيقية</h2>
                     <div class="divider"></div>
-                    <p>خطوة مازال ما طلعش. راه فكرة في طريق التحقيق، وأنت يلي تسجّل اليوم تعاونا نفهموا واش يحتاجه
-                        ولدك بالضبط.</p>
-                    <p>ماكاش تدفع دروك — ولا وعود فارغة. غير تواصل صادق بين عائلات تحب أحسن لأولادها وفريق يحب
-                        يدير حاجة تفرق.</p>
-                    <div class="honest-box">
-                        <div class="honest-image-wrapper">
-                            <img src="nodjob.png" alt="فريق نجومي" class="honest-img" />
-                            <div class="honest-img-overlay">
-                            </div>
-                        </div>
+                    <p>خطوة مازال ما طلعش. راه فكرة في طريق التحقيق، وأنت يلي تسجّل اليوم تعاونا نفهموا واش يحتاجه ولدك
+                        بالضبط.</p>
+                    <p>ماكاش تدفع دروك — ولا وعود فارغة. غير تواصل صادق بين عائلات تحب أحسن لأولادها وفريق يحب يدير حاجة
+                        تفرق.</p>
+                    <div style="
+                            margin-top: 32px;
+                            text-align: center;
+                        ">
+                        <img src="svg.png" alt="تطبيق خطوة" style="
+                            width: 100%;
+                            max-width: 420px;
+                            display: block;
+                            margin: 0 auto;
+                            filter: drop-shadow(0 24px 40px rgba(37,99,235,.18));
+                            transform: rotate(2deg) translateY(-8px);
+                            transition: transform .3s ease;
+                        " onmouseover="this.style.transform='rotate(0deg) translateY(-12px)'"
+                            onmouseout="this.style.transform='rotate(2deg) translateY(-8px)'" />
                     </div>
                 </div>
                 <div class="commit-list reveal">
@@ -1133,7 +1239,7 @@
         </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- ═══════════════ FAQ ═══════════════ -->
     <section style="padding-top:0">
         <div class="wrap">
             <div class="reveal" style="text-align:center">
@@ -1153,7 +1259,7 @@
                 </div>
                 <div class="faq-item">
                     <button class="faq-q" onclick="toggleFaq(this)">
-                        <span>شكون يلي دار خطوة؟</span>
+                        <span>شكون لي دار خطوة؟</span>
                         <span class="faq-arrow">▼</span>
                     </button>
                     <div class="faq-a">فريق جزائري صغير من مختصين في التربية والتكنولوجيا. ما عندناش ملايين — عندنا
@@ -1164,9 +1270,8 @@
                         <span>وقتاش يطلع التطبيق؟</span>
                         <span class="faq-arrow">▼</span>
                     </button>
-                    <div class="faq-a">قريباً — ما عندناش تاريخ محدد. قبل بداية الموسم الدراسي الجديد. اللي يسجّل
-                        اليوم يكون من الأوائل يجرّبوه
-                        ويعطونا رأيهم. وعدنا نخبّروك قبل الإطلاق الرسمي بوقت كافي.</div>
+                    <div class="faq-a">قريباً. قبل بداية الموسم الدراسي الجديد. اللي يسجّل اليوم
+                        يكون من الأوائل يجرّبوه ويعطونا رأيهم. وعدنا نخبّروك قبل الإطلاق الرسمي بوقت كافي.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-q" onclick="toggleFaq(this)">
@@ -1188,20 +1293,22 @@
         </div>
     </section>
 
-    <!-- FINAL CTA -->
+    <!-- ═══════════════ FINAL CTA ═══════════════ -->
     <section>
-        <div class="final-wrap reveal">
-            <h2>ولدك يقدر يكون أذكى — التطبيق يعاونه يوصل لهذاك</h2>
-            <p>سجّل دوكا بلا تكلفة، بلا التزام — وراح نعيطولك شخصياً نفهموا واش يحتاجه ولدك بالضبط.</p>
-            <div class="final-form" id="final-form-wrap">
-                <input type="tel" id="final-phone" placeholder="رقم تيليفونك (واتساب) 📱" dir="ltr"
-                    style="text-align:left" />
-                <button onclick="doFinalSignup()">ابدا دوكا — مجاناً ←</button>
+        <div class="wrap">
+            <div class="final-wrap reveal">
+                <h2>ولدك يقدر يكون أذكى — التطبيق يعاونه يوصل لهذاك</h2>
+                <p>سجّل دوكا بلا تكلفة، بلا التزام — وراح نعيطولك شخصياً نفهموا واش يحتاجه ولدك بالضبط.</p>
+                <div class="final-form" id="final-form-wrap">
+                    <input type="tel" id="final-phone" placeholder="رقم تيليفونك (واتساب) 📱" dir="ltr"
+                        style="text-align:left" />
+                    <button onclick="doFinalSignup()">سجّل مجاناً — نتصلوا بيك هذا الأسبوع ←</button>
+                </div>
+                <div class="final-success" id="final-success">
+                    <p>✓ تسجّلت بنجاح! راح نعيطولك قريباً 🌟</p>
+                </div>
+                <p class="final-note">🔒 معلوماتك آمنة · ما تدفع والو اليوم · الأماكن محدودة للأوائل</p>
             </div>
-            <div class="final-success" id="final-success">
-                <p>✓ تسجّلت بنجاح! راح نعيطولك قريباً 🌟</p>
-            </div>
-            <p class="final-note">🔒 معلوماتك آمنة · ما تدفع والو اليوم · الأماكن محدودة للأوائل</p>
         </div>
     </section>
 
@@ -1212,23 +1319,22 @@
 
     <script>
         const SHEET_URL = "https://script.google.com/macros/s/AKfycbz9C_TXnKVt96nc9MsmbOTVTFyq-UfrqIlk5a2LPlfcUnrMQT5ANcBnmZx3Eyl1smHePA/exec";
+
         function sendToSheet(data) {
             const params = new URLSearchParams(data);
-
-            fetch(SHEET_URL + "?" + params.toString(), {
-                method: "GET",
-                mode: "no-cors"
-            }).catch(err => console.error(err));
+            fetch(SHEET_URL + "?" + params.toString(), { method: "GET", mode: "no-cors" })
+                .catch(err => console.error(err));
         }
 
         function doSignup() {
-            const name = document.getElementById('f-name').value.trim();
             const phone = document.getElementById('f-phone').value.trim();
-            const grade = document.getElementById('f-grade').value;
             if (!phone) { alert('من فضلك دخّل رقم تيليفونك 📱'); return; }
-            sendToSheet({ name, phone, grade, src: 'hero' });
+            sendToSheet({ phone, src: 'hero' });
             document.getElementById('form-inner').style.display = 'none';
             document.getElementById('form-success').style.display = 'block';
+            // bump the counter visually
+            const el = document.getElementById('signup-count');
+            if (el) { const n = parseInt(el.textContent.replace('+', '')) + 1; el.textContent = '+' + n; }
         }
 
         function doFinalSignup() {
