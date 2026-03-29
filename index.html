@@ -255,6 +255,7 @@
             font-style: normal;
             background: linear-gradient(135deg, var(--p), var(--pk));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent
         }
 
@@ -1145,12 +1146,12 @@
                 <div class="feat-card reveal">
                     <div class="feat-icon">🧠</div>
                     <h4>يفهم — ما يحفظش</h4>
-                    <p>رياضيات، عربية، فرنسية، علوم — بشرح يخلّيه يفكّر ويستنتج بدل ما يردّد من غير فهم</p>
+                    <p>رياضيات، عربية، فرنسية — بشرح يخلّيه يفكّر ويستنتج بدل ما يردّد من غير فهم</p>
                 </div>
                 <div class="feat-card reveal">
                     <div class="feat-icon">🤖</div>
                     <h4>التطبيق يتعلّم منه هو</h4>
-                    <p>كل ما يستعمل التطبيق، التطبيق يفهمه أكثر — يعرف واش يصعّب، واش يرجّع، وكيفاش يشرحله بأسلوبه هو
+                    <p>كل ما يستعمل التطبيق، التطبيق يفهمه أكثر — يعرف واش يجيه صعيب واش يراجع، وكيفاش يشرحله بأسلوبه هو
                     </p>
                 </div>
                 <div class="feat-card reveal">
@@ -1300,12 +1301,8 @@
                 <h2>ولدك يقدر يكون أذكى — التطبيق يعاونه يوصل لهذاك</h2>
                 <p>سجّل دوكا بلا تكلفة، بلا التزام — وراح نعيطولك شخصياً نفهموا واش يحتاجه ولدك بالضبط.</p>
                 <div class="final-form" id="final-form-wrap">
-                    <input type="tel" id="final-phone" placeholder="رقم تيليفونك (واتساب) 📱" dir="ltr"
-                        style="text-align:left" />
-                    <button onclick="doFinalSignup()">سجّل مجاناً — نتصلوا بيك هذا الأسبوع ←</button>
-                </div>
-                <div class="final-success" id="final-success">
-                    <p>✓ تسجّلت بنجاح! راح نعيطولك قريباً 🌟</p>
+                    <button onclick="document.getElementById('main-form').scrollIntoView({ behavior: 'smooth' })">سجّل
+                        مجاناً — نتصلوا بيك هذا الأسبوع ←</button>
                 </div>
                 <p class="final-note">🔒 معلوماتك آمنة · ما تدفع والو اليوم · الأماكن محدودة للأوائل</p>
             </div>
@@ -1313,20 +1310,11 @@
     </section>
 
     <footer>
-        <p>درناه بـ ❤️ في <strong>الجزائر</strong></p>
+        <p>درناه في <strong>الجزائر</strong></p>
         <p style="margin-top:4px;color:#94A3B8">خطوة © 2026 — التطبيق قريباً يطلع · سجّل دوكا للوصول المبكر</p>
     </footer>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LQW7B22EJG"></script>
 
-    
     <script>
-    
-          window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-LQW7B22EJG');
-        
         const SHEET_URL = "https://script.google.com/macros/s/AKfycbz9C_TXnKVt96nc9MsmbOTVTFyq-UfrqIlk5a2LPlfcUnrMQT5ANcBnmZx3Eyl1smHePA/exec";
 
         function sendToSheet(data) {
@@ -1346,13 +1334,6 @@
             if (el) { const n = parseInt(el.textContent.replace('+', '')) + 1; el.textContent = '+' + n; }
         }
 
-        function doFinalSignup() {
-            const phone = document.getElementById('final-phone').value.trim();
-            if (!phone) { alert('من فضلك دخّل رقم تيليفونك 📱'); return; }
-            sendToSheet({ phone, src: 'final' });
-            document.getElementById('final-form-wrap').style.display = 'none';
-            document.getElementById('final-success').style.display = 'block';
-        }
 
         function toggleFaq(btn) {
             const item = btn.closest('.faq-item');
